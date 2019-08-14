@@ -1,14 +1,14 @@
 <?php 
-    set_time_limit(1600);
+    //set_time_limit(1600);
+	ini_set('max_execution_time', -1);
     ini_set('memory_limit', '-1');
     include_once 'app/Mage.php';
     umask(0);
     Mage::app();
 
-    //get store disabled products
-    if(!empty($_GET['status'])){
 
-        if($_GET['status'] == 'disabled'){
+    //get store disabled products
+    if($_GET['status'] == 'disabled'){
 
             $output = array();
             $data = array();
@@ -42,22 +42,81 @@
             //print disabled products
             print json_encode($output);
             exit();
-        }
 
+    }
+
+    if($_GET['attributes'] == 'true'){
+    	//get store attributes
+	    $attribute = Mage::getModel('catalog/product')->getAttributes();
+	    $attributes = array();
+	    $data = array();
+	    $output = array();
+
+	    foreach($attribute as $a){
+
+	        foreach ($a->getEntityType()->getAttributeCodes() as $attributeName) {
+
+	            $attributes[$attributeName] = $attributeName;
+	        }
+	    }
+
+	    $data['attributes'] = array(
+                                   $attributes
+                                );
+
+	    //push product data array into output
+        array_push($output, $data);
+
+        //header to indicate content type
+        header('Content-Type: application/json; charset=utf-8');
+
+	    //print store attributes
+        print json_encode($output);
+        exit();
+
+    }
+
+    if($_GET['grouped'] == 'true'){
+
+    	$product = Mage::getModel('catalog/product')
+				   ->getCollection()
+				   ->addAttributeToFilter('type_id', array('eq' => 'grouped'))
+				   ->load();
+
+		$parentProductId = array();
+
+		foreach($product as $simpleProducts) {
+		  //$simpleProducts->loadParentProductIds();
+		  //array_push($parentProductId,$simpleProducts->getParentProductIds());
+		  //var_dump($simpleProducts->getParentProductIds());
+          $values = $simpleProducts->getValues();
+          var_dump($values);
+		}
+		//var_dump($parentProductId);
+		exit();
 
     }
 
 
-    //get store attributes
-    $attribute = Mage::getModel('catalog/product')->getAttributes();
-    $attributeArray = array();
+    if($_GET['bundled'] == 'true'){
 
-    foreach($attribute as $a){
+    	$product = Mage::getModel('catalog/product')
+				   ->getCollection()
+				   ->addAttributeToFilter('type_id', array('eq' => 'bundle'))
+				   ->load();
 
-        foreach ($a->getEntityType()->getAttributeCodes() as $attributeName) {
+		$parentProductId = array();
 
-            $attributeArray[$attributeName] = $attributeName;
-        }
+		foreach($product as $bundleProduct) {
+		  //$bundleProduct->loadParentProductIds();
+		  //array_push($parentProductId,$bundleProduct->getParentProductIds());
+            $values = $bundleProduct->getValues();
+            var_dump($values);
+		  
+		}
+		//var_dump($parentProductId);
+		exit();
+
     }
 
 
@@ -71,18 +130,20 @@
         
         //Start Date filter
 
-        $date = $_GET['lastupdated'];
+
         //Set start date 
-        $fromDate = $date;
+        $fromDate = $_GET['lastupdated'];
+        
         //Set end date
-        $toDate = '2040-12-06 11:06:00';
+        //$toDate = '2040-12-06 11:06:00';
 
         // Format our dates
         $fromDate = date('Y-m-d H:i:s', strtotime($fromDate));
-        $toDate = date('Y-m-d H:i:s', strtotime($toDate));
+        //$toDate = date('Y-m-d H:i:s', strtotime($toDate));
          
         //Filter products using date ranges
-        $products->addAttributeToFilter('updated_at', array('from'=>$fromDate, 'to'=>$toDate, 'datetime'=>true));
+        //$products->addAttributeToFilter('updated_at', array('from'=>$fromDate, 'to'=>$toDate, 'datetime'=>true));
+        $products->addAttributeToFilter('updated_at', array('from'=>$fromDate, 'datetime'=>true));
 
         //End Date filter
     }
@@ -124,8 +185,6 @@
             foreach ($product->getdata() as $key => $value) {
 
              	if ($key!=='stock_item') {
-
-                 	//my code start
                  	
                  	$url = $product->getProductUrl();
                  	 if (($key == 'url_path') || ($key =='url_key')){ 
@@ -148,12 +207,41 @@
                  	 if ($key == 'brand'){ 
                      	 $value = $product->getResource()->getAttribute('brand')->getFrontend()->getValue($product);
                  	 }
+                
                  	 
-                        $attributes[$key] = $value;
+                    $attributes[$key] = $value;
              		
              	}
              	
              	
+            }
+
+          
+			$product_options = array();
+			$opts = array();
+            //get product options
+			$options = Mage::getModel('catalog/product_option')->getProductOptionCollection($product);
+
+            if($options){
+
+                foreach ($options as $option) {
+
+                    //get product option values
+                    $values = $option->getValues();
+
+                    if($values){
+                         foreach ($values as $v) {
+                            foreach ($v->getData() as $key => $value) {
+                                $product_options[$key] = $value;
+                                $product_options['name'] = $option->getDefaultTitle();
+                                $product_options['optiontype'] = $option->getType();
+                            }
+                            array_push($opts, $product_options);
+                        }
+                    }
+                
+                }
+
             }
 
 
@@ -169,6 +257,7 @@
                         //build product data array
                         $product['product'] = array(
                                             $attributes,
+                                            array("options" => $opts),
                                             array("category" => array('name' => $cat_name, 'url' => $cat_url))
                                         );
 
@@ -180,9 +269,6 @@
          
 
          }//endforeach;
-
-         //push product attributes into output 
-         array_push($output, $output["attributes"] = $attributeArray);
   
 }//endif;
 

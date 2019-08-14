@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
     <name>Feed_Manager_Version_1_1_2</name>
-    <version>2.0.8</version>
+    <version>2.0.9</version>
     <stability>stable</stability>
     <license uri="http://www.opensource.org/licenses/academic.php">Academic Free License (AFL)</license>
     <channel>community</channel>
@@ -27,8 +27,8 @@
     <notes>This is faster and effecients. It now returns products in Json and has the last updated parameter added for fetching products</notes>
     <authors><author><name>Rinkart Osei Asibey</name><user>rinkarto</user><email>rinkarto2000@gmail.com</email></author><author><name>Rinkart Osei Asibey</name><user>RetailTower</user><email>support@retailtower.com</email></author></authors>
     <date>2014-12-22</date>
-    <time>14:55:20</time>
-    <contents><target name="mage"><dir name="."><file name="productapi.php" hash="c9e52eb956f04a3caa6f0cb79748f4f2"/></dir></target></contents>
+    <time>15:26:57</time>
+    <contents><target name="mage"><dir name="."><file name="productapi.php" hash=""/></dir></target></contents>
     <compatible/>
-    <dependencies><required><php><min>5.4.1</min><max>5.5.1</max></php></required></dependencies>
+    <dependencies><required><php><min>4.1.1</min><max>5.5.1</max></php></required></dependencies>
 </package>

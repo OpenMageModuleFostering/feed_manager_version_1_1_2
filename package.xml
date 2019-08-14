@@ -1,35 +1,20 @@
 <?xml version="1.0"?>
 <package>
     <name>Feed_Manager_Version_1_1_2</name>
-    <version>2.1.3</version>
+    <version>2.1.4</version>
     <stability>stable</stability>
     <license uri="http://www.opensource.org/licenses/academic.php">Academic Free License (AFL)</license>
     <channel>community</channel>
     <extends/>
-    <summary>Easily create datafeeds for your Magento store for various shopping engines and marketplaces like Google, Shopzilla, TheFind, Bing Shopping etc&#xD;
-</summary>
-    <description>&lt;p&gt;&lt;span&gt;&lt;strong&gt;Its a 2 in 1 package&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&#xD;
-&lt;p&gt;1. Submit your products to&lt;strong&gt; shopping comparison engines&lt;/strong&gt; using our &lt;strong&gt;Feed Manager&lt;/strong&gt; feature&lt;/p&gt;&#xD;
-&lt;p&gt;2. Create &lt;strong&gt;Facebook fanpage stores&lt;/strong&gt; with our new Shop Plus feature.&lt;/p&gt;&#xD;
-&lt;p&gt;Seamless integration with Magento and shopping comparison engines to provide a solution to list your store on shopping engines. You can create, optimize, and manage your shopping data feed and automatically list your products on shopping comparison engines such as &lt;strong&gt;Google Product Search&lt;/strong&gt;, &lt;strong&gt;TheFind.com&lt;/strong&gt;, &lt;strong&gt;Become.com&lt;/strong&gt;, &lt;strong&gt;Nextag&lt;/strong&gt;, &lt;strong&gt;Shopping.com&lt;/strong&gt;, &lt;strong&gt;Pricegrabber&lt;/strong&gt;, &lt;strong&gt;Shopzilla&lt;/strong&gt;, &lt;strong&gt;Shopmania&lt;/strong&gt;, etc.&lt;/p&gt;&#xD;
-&lt;p&gt;It is faster and automates datafeeds process&lt;/p&gt;&#xD;
-&lt;p&gt; Sell your high perfoming products on shopping engines&lt;/p&gt;&#xD;
-&lt;p&gt;&#xA0;&lt;/p&gt;&#xD;
-&lt;p&gt;How-to use it:&lt;/p&gt;&#xD;
-&lt;p&gt;1. Install this extension&lt;/p&gt;&#xD;
-&lt;p&gt;2. Change the permission of file &lt;b&gt;productapi.php&lt;/b&gt; to 644. The file can be located in your root of your web folder after installation&lt;/p&gt;&#xD;
-&lt;p&gt;3. Register at &lt;a href="http://app.retailtower.com/signup"&gt;http://app.retailtower.com/signup&lt;/a&gt; and register.&lt;/p&gt;&#xD;
-&lt;p&gt;4. If there are any problems with installation, contact us at support@retailtower.com and we will help set you up immediately.&lt;/p&gt;&#xD;
-&lt;p&gt;&#xA0;&lt;/p&gt;&#xD;
-&lt;p&gt;Note:&lt;/p&gt;&#xD;
-&lt;p&gt;1. Feed Manager Version 1.1.2 works with magento 1.4x and above. &lt;/p&gt;&#xD;
-&lt;p&gt;2. Please back-up your store and database before installing this extension as we will not be responsible for any errors or problems that may occur with this open source extension.&lt;/p&gt;&#xD;
-&lt;p&gt;3. RetailTower does not provide extensive Magento support or other related Magento installation services for this open source extension. Please read our documentation and help file for assistance.&lt;/p&gt;</description>
-    <notes>It is optimized to display more products and the last updated parameter added for faster product download. It will pull dynamic product attributes and supports product options.</notes>
-    <authors><author><name>Rinkart Osei Asibey</name><user>rinkarto</user><email>rinkarto2000@gmail.com</email></author><author><name>Retailtower</name><user>RetailTower</user><email>support@retailtower.com</email></author></authors>
-    <date>2015-02-02</date>
-    <time>15:33:58</time>
-    <contents><target name="mage"><dir name="."><file name="productapi.php" hash="1ca239c9cee1925c33a489acae0cfdd7"/></dir></target></contents>
+    <summary>Easily list your products with leading shopping engines and marketplaces such as Google, Amazon, Shopzilla, Pricegrabber and Shopbot</summary>
+    <description>&lt;p&gt;Reach larger customers by connecting your store to leading shopping engines and marketplaces.&lt;/p&gt;&#xD;
+&lt;p&gt;Optimize the feeds to increase rankings on shopping engines and marketplaces.&lt;/p&gt;&#xD;
+</description>
+    <notes>It is optimized to display paginated products and will load faster</notes>
+    <authors><author><name>RetailTower</name><user>Rinkart</user><email>suppor@retailtower.com</email></author></authors>
+    <date>2016-04-01</date>
+    <time>16:16:36</time>
+    <contents><target name="mage"><dir name="."><file name="productapi.php" hash="70196e6d54b13736a2b74cdfc0077d73"/></dir></target></contents>
     <compatible/>
-    <dependencies><required><php><min>5.1.0</min><max>5.5.1</max></php></required></dependencies>
+    <dependencies><required><php><min>5.1.0</min><max>5.6.0</max></php></required></dependencies>
 </package>

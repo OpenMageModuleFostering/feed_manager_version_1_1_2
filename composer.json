@@ -3,12 +3,11 @@
     "type": "magento-module",
     "license": "Academic-Free-License-(AFL)",
     "homepage": "",
-    "description": "Easily create datafeeds for your Magento store for various shopping engines and marketplaces like Google, Shopzilla, TheFind, Bing Shopping etc
-",
+    "description": "Easily list your products with leading shopping engines and marketplaces such as Google, Amazon, Shopzilla, Pricegrabber and Shopbot",
     "authors": [
     {
-        "name": "Rinkart Osei Asibey",
-        "email": "rinkarto2000@gmail.com"
+        "name": "RetailTower",
+        "email": "suppor@retailtower.com"
     }
 ],
     "suggest": {

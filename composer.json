@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Feed_Manager_Version_1_1_2",
+    "type": "magento-module",
+    "license": "Academic-Free-License-(AFL)",
+    "homepage": "",
+    "description": "Easily create datafeeds for your Magento store for various shopping engines and marketplaces like Google, Shopzilla, TheFind, Bing Shopping etc",
+    "authors": [
+    {
+        "name": "Rinkart Osei Asibey",
+        "email": "rinkarto2000@gmail.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

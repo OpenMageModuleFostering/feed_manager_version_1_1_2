@@ -5,8 +5,8 @@
     umask(0);
     Mage::app();
 
-
-   if(!empty($_GET['status'])){
+    //get store disabled products
+    if(!empty($_GET['status'])){
 
         if($_GET['status'] == 'disabled'){
 
@@ -48,20 +48,34 @@
     }
 
 
+    //get store attributes
+    $attribute = Mage::getModel('catalog/product')->getAttributes();
+    $attributeArray = array();
+
+    foreach($attribute as $a){
+
+        foreach ($a->getEntityType()->getAttributeCodes() as $attributeName) {
+
+            $attributeArray[$attributeName] = $attributeName;
+        }
+    }
+
+
+    //get store products
     $products = Mage::getModel('catalog/product')->getCollection();
 
 
 	$products->addAttributeToSelect('*');
 
-    if(!empty($_GET['startDate'])){
+    if(!empty($_GET['lastupdated'])){
         
         //Start Date filter
 
-        $date = $_GET['startDate'];
+        $date = $_GET['lastupdated'];
         //Set start date 
         $fromDate = $date;
         //Set end date
-        $toDate = '2020-12-06 11:06:00';
+        $toDate = '2040-12-06 11:06:00';
 
         // Format our dates
         $fromDate = date('Y-m-d H:i:s', strtotime($fromDate));
@@ -146,7 +160,7 @@
             $categories = $product->getCategoryIds();
             $product    = array();
 
-            	foreach($categories as $k => $_category_id): 
+            	foreach($categories as $k => $_category_id){ 
 
                         $_category = Mage::getModel('catalog/category')->load($_category_id);
                         $cat_name  = $_category->getName();
@@ -162,10 +176,13 @@
                         array_push($output, $output["products"] = $product);
                         
 
-                endforeach;  
+                } 
          
 
          }//endforeach;
+
+         //push product attributes into output 
+         array_push($output, $output["attributes"] = $attributeArray);
   
 }//endif;
 

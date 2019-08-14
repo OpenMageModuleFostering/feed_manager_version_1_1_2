@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
     <name>Feed_Manager_Version_1_1_2</name>
-    <version>2.1.1</version>
+    <version>2.1.2</version>
     <stability>stable</stability>
     <license uri="http://www.opensource.org/licenses/academic.php">Academic Free License (AFL)</license>
     <channel>community</channel>
@@ -25,11 +25,11 @@
 &lt;p&gt;1. Feed Manager Version 1.1.2 works with magento 1.4x and above. &lt;/p&gt;&#xD;
 &lt;p&gt;2. Please back-up your store and database before installing this extension as we will not be responsible for any errors or problems that may occur with this open source extension.&lt;/p&gt;&#xD;
 &lt;p&gt;3. RetailTower does not provide extensive Magento support or other related Magento installation services for this open source extension. Please read our documentation and help file for assistance.&lt;/p&gt;</description>
-    <notes>It is optimized to display more products and the last updated parameter added for faster product download.</notes>
+    <notes>It is optimized to display more products and the last updated parameter added for faster product download. Displays dynamic product attributes</notes>
     <authors><author><name>Rinkart Osei Asibey</name><user>rinkarto</user><email>rinkarto2000@gmail.com</email></author><author><name>Retailtower</name><user>RetailTower</user><email>support@retailtower.com</email></author></authors>
-    <date>2014-12-22</date>
-    <time>17:48:38</time>
-    <contents><target name="mage"><dir name="."><file name="productapi.php" hash="c9e52eb956f04a3caa6f0cb79748f4f2"/></dir></target></contents>
+    <date>2015-01-05</date>
+    <time>15:10:20</time>
+    <contents><target name="mage"><dir name="."><file name="productapi.php" hash="00244dd759c4f1d89850da1b2b635218"/></dir></target></contents>
     <compatible/>
     <dependencies><required><php><min>5.1.0</min><max>5.5.1</max></php></required></dependencies>
 </package>

@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Feed_Manager_Version_1_1_2",
+    "name": "OpenMageModuleFostering\/Feed_Manager_Version_1_1_2",
     "type": "magento-module",
     "license": "Academic-Free-License-(AFL)",
     "homepage": "",
     "description": "Easily list your products with leading shopping engines and marketplaces such as Google, Amazon, Shopzilla, Pricegrabber and Shopbot",
     "authors": [
-    {
-        "name": "RetailTower",
-        "email": "suppor@retailtower.com"
-    }
-],
+        {
+            "name": "RetailTower",
+            "email": "suppor@retailtower.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
